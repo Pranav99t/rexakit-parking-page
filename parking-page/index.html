@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rexakit | Something Amazing is Coming</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Work+Sans:wght@700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-dots"></div>
+
+    <main class="container">
+        <header>
+            <div class="logo-wrapper">
+                <img src="assets/logo.png" alt="Rexakit Logo" class="logo">
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="status-badge">
+                    <span class="pulse-dot"></span>
+                    COMING SOON
+                </div>
+
+                <h1 class="title">REXA<span class="outline">KIT</span></h1>
+
+                <div class="tagline">
+                    <p>THE <span class="highlight">ULTIMATE</span> TOOLKIT FOR CREATIVES.</p>
+                </div>
+
+                <div class="description-box">
+                    <p>We've officially secured the domain! Currently under construction to bring you the most useful &
+                        aesthetic
+                        toolkit on the web. Stay tuned.</p>
+                </div>
+
+                <div class="cta-section">
+                    <div class="btn-group">
+                        <a href="mailto:oppranav10@gmail.com" class="btn">CONTACT US</a>
+                        <a href="https://discord.gg/CbykwrVU5F" target="_blank" class="btn btn-secondary">JOIN
+                            COMMUNITY</a>
+                    </div>
+                    <div class="social-links">
+                        <span class="social-text">Follow the journey:</span>
+                        <div class="icons">
+                            <a href="https://x.com/rexakit" target="_blank" class="icon-box" title="X (Twitter)">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                                    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/rexakit/" target="_blank" class="icon-box"
+                                title="Instagram">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/pranav99t" target="_blank" class="icon-box"
+                                title="LinkedIn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                    </path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 REXAKIT. ALL RIGHTS RESERVED. <span class="blink">_</span></p>
+        </footer>
+    </main>
+
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+
+    <script>
+        // Optimized parallax effect using requestAnimationFrame
+        let ticking = false;
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateParallax();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        function updateParallax() {
+            const x = mouseX / window.innerWidth;
+            const y = mouseY / window.innerHeight;
+
+            const hero = document.querySelector('.hero-content');
+            if (hero) hero.style.transform = `translate(${x * 20 - 10}px, ${y * 20 - 10}px)`;
+
+            document.querySelectorAll('.floating-shape').forEach((shape, index) => {
+                const speed = (index + 1) * 20;
+                shape.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        }
+    </script>
+</body>
+
+</html>
